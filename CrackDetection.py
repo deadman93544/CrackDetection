@@ -71,6 +71,7 @@ class CrackDetection:
         # cam.release()
         # cv2.destroyAllWindows()
         gray_image = cv2.imread(r'/home/gaurav/Desktop/gphoto/images/' + path, 0)
+        log.info(gray_image)
         with_nmsup = True  # apply non-maximal suppression
         fudgefactor = 1.3  # with this threshold you can play a little bit
         sigma = 21  # for Gaussian Kernel
@@ -118,4 +119,5 @@ if __name__ == "__main_":
     crack_detection = CrackDetection.get_instance()
     camera = Camera.get_instance()
     file = camera.run()
-    crack_detection.detect_function(file)
+    log.info(file)
+    #crack_detection.detect_function(file)

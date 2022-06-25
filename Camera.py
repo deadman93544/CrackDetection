@@ -92,6 +92,6 @@ class Camera:
 # createSaveFolder()
 # captureImages()
 # renameFiles(picID)
-# if __name__ == "__main__":
-#     camera = Camera.get_instance()
-#     camera.run()
+if __name__ == "__main__":
+    camera = Camera.get_instance()
+    camera.run()
