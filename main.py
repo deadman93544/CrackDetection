@@ -2,12 +2,10 @@ import cv2
 import numpy as np
 import conveyor_lib
 
-
 cap = cv2.VideoCapture(0)
 
 # Conveyor belt library
 relay = conveyor_lib.Conveyor()
-
 
 while True:
     _, frame = cap.read()
@@ -37,7 +35,6 @@ while True:
             cv2.rectangle(belt, (x, y), (x + w, y + h), (255, 0, 0), 2)
 
         cv2.putText(belt, str(area), (x, y), 1, 1, (0, 255, 0))
-
 
     cv2.imshow("Frame", frame)
     cv2.imshow("belt", belt)
