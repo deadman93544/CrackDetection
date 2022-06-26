@@ -16,4 +16,5 @@ crack_detection = CrackDetection.get_instance()
 def fetch_capture_image():
     request_files = request.files
     log.info(request_files)
+    # crack_detection.detect_function()
     return {"Success": True}

@@ -50,25 +50,6 @@ class CrackDetection:
     # start calulcation
     # cv2.namedWindow("Grab")
     def detect_function(self, path):
-        # cam = cv2.VideoCapture(1)
-        # while True:
-        #     ret, frame = cam.read()
-        #     if not ret:
-        #         print("failed to grab frame")
-        #         break
-        #     cv2.imshow("Grab Frame", frame)
-        #
-        #     k = cv2.waitKey(1)
-        #     if k % 256 == 27:
-        #         # ESC pressed
-        #         print("Escape hit, closing...")
-        #         break
-        #     elif k % 256 == 32:
-        #         # SPACE pressed
-        #         img_name = "crack.jpeg"
-        #         cv2.imwrite(img_name, frame)
-        # cam.release()
-        # cv2.destroyAllWindows()
         gray_image = cv2.imread(r'/home/gaurav/Desktop/gphoto/images/' + path, 0)
         with_nmsup = True  # apply non-maximal suppression
         fudgefactor = 1.3  # with this threshold you can play a little bit

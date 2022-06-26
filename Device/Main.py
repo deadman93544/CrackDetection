@@ -1,9 +1,7 @@
 import logging
 import threading
-from Camera import Camera
-from flask_server import send_captured_image
+from CrackDetection import CrackDetection
 import os
-
 logging.basicConfig(level='INFO')
 log = logging.getLogger("MAIN")
 
@@ -23,7 +21,7 @@ class Main:
             log.info("Main instance is not None")
         else:
             self.dirPath = '/home/gaurav/Desktop/gphoto/images/'
-            self.camera = Camera.get_instance()
+            self.crack_detection = CrackDetection.get_instance()
 
     def run(self):
         t = threading.Thread(target=self.run_loop)
@@ -31,7 +29,5 @@ class Main:
         t.start()
 
     def run_loop(self):
-        file_name = self.camera.run()
+        file_name = self.crack_detection.detect_function()
         log.info("File Name: ", file_name)
-        file = os.open(self.dirPath + file_name, os.O_RDWR)
-        send_captured_image(file)
