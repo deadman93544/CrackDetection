@@ -1,7 +1,11 @@
+import werkzeug.datastructures
 from flask import Flask, request, send_from_directory
 import logging
 from CrackDetection import CrackDetection
+from PIL import Image
+import PIL
 import time
+import os
 from threading import Thread
 
 logging.basicConfig(level='INFO')
@@ -9,7 +13,7 @@ log = logging.getLogger('FLASK')
 
 app = Flask(__name__)
 
-dir = "C:\\Users\\Prabhat Ranjan\\Desktop\\gphoto\\"
+# path_dir = "C:\Users\Prabhat Ranjan\Desktop\gphoto"
 
 crack_detection = CrackDetection.get_instance()
 
@@ -17,9 +21,22 @@ crack_detection = CrackDetection.get_instance()
 @app.route('/crack', methods=['POST'])
 def fetch_capture_image():
     request_files = request.files
-    log.info(request_files)
-
-    # crack_detection.detect_function(request_files['cam'])
+    # content = request.content
+    log.info(request_files['cam'])
+    file = request_files['cam']
+    if file:
+        # filename = file.filename
+        # print(filename)
+        print(file)
+        img = Image.open(file)
+        print(img.size)
+        img.save('output.jpg')
+        # path = os.path.join('C:/Users/Prabhat Ranjan/Desktop/gphoto/img1.jpg')
+        # im1 = Image.open(path)
+        # im1.save(file)
+        # f = open('C:/Users/Prabhat Ranjan/Desktop/gphoto/' + filename, mode='w')
+        # f.write(file)
+        crack_detection.detect_function('output.jpg')
     return {"Success": True}
 
 

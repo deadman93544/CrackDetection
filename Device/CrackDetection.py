@@ -50,7 +50,15 @@ class CrackDetection:
     # start calulcation
     # cv2.namedWindow("Grab")
     def detect_function(self, path):
-        gray_image = cv2.imread(r'/home/gaurav/Desktop/gphoto/images/' + path, 0)
+        gray_image = cv2.imread(r'output.jpg', 0)
+        scale_percent = 15  # percent of original size
+        width = int(gray_image.shape[1] * scale_percent / 100)
+        height = int(gray_image.shape[0] * scale_percent / 100)
+        dim = (width, height)
+        # resize image
+        gray_image = cv2.resize(gray_image, dim, interpolation=cv2.INTER_AREA)
+
+        print('Resized Dimensions : ', gray_image.shape)
         with_nmsup = True  # apply non-maximal suppression
         fudgefactor = 1.3  # with this threshold you can play a little bit
         sigma = 21  # for Gaussian Kernel
@@ -93,8 +101,8 @@ class CrackDetection:
             cv2.imshow('im', result)
             cv2.waitKey()
 
-# if __name__ == "__main_":
+# if __name__ == "__main__":
 #     crack_detection = CrackDetection.get_instance()
-#     camera = Camera.get_instance()
-#     file = camera.run()
-#     crack_detection.detect_function(file)
+#     # camera = Camera.get_instance()
+#     # file = camera.run()
+#     crack_detection.detect_function("hello")
