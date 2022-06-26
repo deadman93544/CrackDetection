@@ -93,7 +93,6 @@ class CrackDetection:
             cv2.imshow('im', result)
             cv2.waitKey()
 
-
 # if __name__ == "__main_":
 #     crack_detection = CrackDetection.get_instance()
 #     camera = Camera.get_instance()

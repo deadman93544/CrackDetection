@@ -1,13 +1,14 @@
 import logging
+import time
 from time import sleep
 from datetime import datetime
 from sh import gphoto2 as gp
 import signal, os, subprocess
 import logging
+from flask_server import send_captured_image
 
 logging.basicConfig(level='INFO')
 log = logging.getLogger("CAMERA")
-
 
 class Camera:
     __instance = None
@@ -93,5 +94,12 @@ class Camera:
 # captureImages()
 # renameFiles(picID)
 if __name__ == "__main__":
-    camera = Camera.get_instance()
-    camera.run()
+    dirPath = '/home/gaurav/Desktop/gphoto/images/'
+    while True:
+        camera = Camera.get_instance()
+        file_name = camera.run()
+        file = os.open(dirPath + file_name, os.O_RDWR)
+        send_captured_image(file)
+        print("Sleeping")
+        time.sleep(20)
+        print("Sleep Over")
