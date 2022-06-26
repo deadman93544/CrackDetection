@@ -51,10 +51,9 @@ class Conveyor:
         GPIO.cleanup()
         print("GPIO Clean up")
 
-
-if __name__ == "__main__":
-    conveyor = Conveyor.get_instance()
-    conveyor.start_conveyor()
-    time.sleep(10)
-    conveyor.stop_conveyor()
-    conveyor.cleanup()
+# if __name__ == "__main__":
+#     conveyor = Conveyor.get_instance()
+#     conveyor.start_conveyor()
+#     time.sleep(10)
+#     conveyor.stop_conveyor()
+#     conveyor.cleanup()

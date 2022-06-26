@@ -6,9 +6,10 @@ from sh import gphoto2 as gp
 import signal, os, subprocess
 import logging
 from flask_server import send_captured_image
-
+from Conveyor import Conveyor
 logging.basicConfig(level='INFO')
 log = logging.getLogger("CAMERA")
+
 
 class Camera:
     __instance = None
@@ -93,10 +94,16 @@ class Camera:
 # createSaveFolder()
 # captureImages()
 # renameFiles(picID)
+
+
 if __name__ == "__main__":
     dirPath = '/home/gaurav/Desktop/gphoto/images/'
+    conveyor = Conveyor.get_instance()
+    camera = Camera.get_instance()
     while True:
-        camera = Camera.get_instance()
+        conveyor.start_conveyor()
+        time.sleep(2)
+        conveyor.stop_conveyor()
         file_name = camera.run()
         # file = os.open(dirPath + file_name, os.O_RDWR)
         send_captured_image(file_name)
