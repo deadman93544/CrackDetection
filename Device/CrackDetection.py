@@ -3,7 +3,6 @@ import math
 import numpy as np
 import scipy.ndimage
 import logging
-from Camera import Camera
 
 logging.basicConfig(level='INFO')
 log = logging.getLogger("CrackDetection")
@@ -114,8 +113,8 @@ class CrackDetection:
             cv2.waitKey()
 
 
-if __name__ == "__main_":
-    crack_detection = CrackDetection.get_instance()
-    camera = Camera.get_instance()
-    file = camera.run()
-    crack_detection.detect_function(file)
+# if __name__ == "__main_":
+#     crack_detection = CrackDetection.get_instance()
+#     camera = Camera.get_instance()
+#     file = camera.run()
+#     crack_detection.detect_function(file)

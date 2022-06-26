@@ -65,7 +65,7 @@ class Camera:
         gp(self.clearCommand)
 
     def rename_files(self, ID):
-        for filename in os.listdir("."):
+        for filename in os.listdir(".."):
             if len(filename) < 13:
                 if filename.endswith(".JPG"):
                     os.rename(filename, (self.shot_time + ID + ".JPG"))
@@ -86,12 +86,11 @@ class Camera:
         # log.info(file)
         return file
 
-
 # killgphoto2Process()
 # gp(clearCommand)
 # createSaveFolder()
 # captureImages()
 # renameFiles(picID)
-# if __name__ == "__main__":
+# if __name__ == "__m-ain__":
 #     camera = Camera.get_instance()
 #     camera.run()
