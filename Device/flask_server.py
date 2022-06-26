@@ -11,6 +11,7 @@ dir = "C:\\Users\\Prabhat Ranjan\\Desktop\\gphoto\\"
 
 crack_detection = CrackDetection.get_instance()
 
+
 @app.route('/crack', methods=['POST'])
 def fetch_capture_image():
     request_files = request.files
