@@ -1,5 +1,7 @@
 import logging
 import threading
+import time
+
 from Camera import Camera
 from flask_server import send_captured_image
 import os
@@ -35,3 +37,6 @@ class Main:
         log.info("File Name: ", file_name)
         file = os.open(self.dirPath + file_name, os.O_RDWR)
         send_captured_image(file)
+        log.info("Sleeping")
+        time.sleep(20)
+        log.info("Sleep Over")
