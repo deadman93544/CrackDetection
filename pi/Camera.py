@@ -98,8 +98,8 @@ if __name__ == "__main__":
     while True:
         camera = Camera.get_instance()
         file_name = camera.run()
-        file = os.open(dirPath + file_name, os.O_RDWR)
-        send_captured_image(file)
+        # file = os.open(dirPath + file_name, os.O_RDWR)
+        send_captured_image(file_name)
         print("Sleeping")
         time.sleep(20)
         print("Sleep Over")
