@@ -40,3 +40,8 @@ class Main:
         log.info("Sleeping")
         time.sleep(20)
         log.info("Sleep Over")
+
+
+if __name__ == "__main__":
+    main_loop = Main.get_instance()
+    main_loop.run()

@@ -2,7 +2,7 @@ from flask import Flask, request
 import os
 import logging
 # from Camera import Camera
-from Main import Main
+# from Main import Main
 import requests
 from threading import Thread
 
@@ -10,9 +10,9 @@ logging.basicConfig(level='INFO')
 log = logging.getLogger("FLASK")
 
 app = Flask(__name__)
-main_app = Main.get_instance()
-main_app.run()
-
+# main_app = Main.get_instance()
+# main_app.run()
+#
 # dir = "/home/gaurav/Desktop/gphoto/images/"
 
 
@@ -28,5 +28,5 @@ def send_captured_image(file):
         log.warning(e)
 
 
-t1 = Thread(target=lambda: app.run(host='0.0.0.0', debug=False, threaded=True, use_reloader=False))
-t1.start()
+# t1 = Thread(target=lambda: app.run(host='0.0.0.0', debug=False, threaded=True, use_reloader=False))
+# t1.start()
