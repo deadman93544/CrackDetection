@@ -14,7 +14,7 @@ class Main:
     __instance = None
 
     @staticmethod
-    def get_instance(self):
+    def get_instance():
         if Main.__instance is None:
             return Main()
         log.info("Fetching Main Instance")
