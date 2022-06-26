@@ -42,6 +42,6 @@ class Main:
         log.info("Sleep Over")
 
 
-if __name__ == "__main__":
-    main_loop = Main.get_instance()
-    main_loop.run()
+# if __name__ == "__main__":
+#     main_loop = Main.get_instance()
+#     main_loop.run()
